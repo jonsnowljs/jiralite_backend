@@ -1,14 +1,11 @@
 import mongoose from 'mongoose';;
 
-const projectSchema = new mongoose.Schema({
-  created: { type: Date },
+const KanbanSchema = new mongoose.Schema({
   name: { type: String },
-  organization: { type: String },
   ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  projectId: { type: mongoose.Schema.Types.ObjectId, ref: 'Project' },
   personId: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
   pin: { type: Boolean },
 });
 
-const Project = mongoose.model('Project',projectSchema)
-
-export default Project
+module.exports = mongoose.model('Kanban', KanbanSchema);

@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';;
 
-const tagSchema = new mongoose.Schema({
+const TagSchema = new mongoose.Schema({
   name: { type: String },
   ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
-const Tag = mongoose.model('Tag', tagSchema)
-export default Tag
+module.exports = mongoose.model('Tag', TagSchema);
